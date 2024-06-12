@@ -1,0 +1,15 @@
+version: "3"
+services:
+  next-with-docker-dev:
+    container_name: next-with-docker-dev-container
+    image: next-with-docker-dev-image
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/next-with-docker
+      - /next-with-docker/node_modules
+    command: npm run dev
